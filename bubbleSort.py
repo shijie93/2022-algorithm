@@ -3,9 +3,7 @@
 # 时间复杂度 O(n^2)
 
 import random
-from calTime import cal_time
 
-@cal_time
 def bubble_sort(li):
     for i in range(0, len(li)):
         is_change = False
@@ -16,7 +14,7 @@ def bubble_sort(li):
         if not is_change:
             return
 
-
-li = random.sample(range(1, 400000), 5000)
-bubble_sort(li)
-# print(li)
+if __name__ == '__main__':
+    li = random.sample(range(1, 400000), 5000)
+    bubble_sort(li)
+    # print(li)
