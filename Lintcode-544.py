@@ -1,6 +1,8 @@
 # 在一个数组中找到前K大的数
 import random
 
+from heapSort import heaq_sort
+
 class Solution:
     """
     @param nums: an integer array
@@ -36,19 +38,20 @@ class Solution:
             self.sift(heap, i, k - 1)
 
         # 遍历
-        for i in range(k, len(nums) - 1):
+        for i in range(k, len(nums)):
             if nums[i] > heap[0]:
                 heap[0] = nums[i]
                 self.sift(heap, 0, k - 1)
 
-        for i in range(k-1, -1 -1):
-            heap[i], heap[0] = heap[0], heap[i]
+        for i in range(k-1, -1, -1):
+            heap[0], heap[i] = heap[i], heap[0]
             self.sift(heap, 0, i - 1)
-
+        
         return heap
 
 if __name__ == '__main__':
-    li = list(range(0, 20))
-    random.shuffle(li)
+    l = list(range(0, 10000))
+    random.shuffle(l)
     s = Solution()
-    print(s.topk(li, 10))
+    ret = s.topk(l, 10)
+    print(ret)
