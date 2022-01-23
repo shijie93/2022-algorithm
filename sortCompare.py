@@ -3,6 +3,7 @@ import random
 import copy
 from bubbleSort import bubble_sort
 from calTime import cal_avg_time
+from heapSort import heaq_sort, use_heapq_sort
 from insertSort import insert_sort
 from quickSort import quick_sort
 from selectionSort import selection_sort
@@ -14,6 +15,7 @@ li2 = random.sample(range(1, 10000), count)
 li3 = random.sample(range(1, 10000), count)
 li4 = random.sample(range(1, 10000), count)
 li5 = random.sample(range(1, 10000), count)
+
 
 @cal_avg_time(times=5)
 def test_sorted(f):
@@ -36,5 +38,5 @@ if __name__ == '__main__':
     assert tmp == test_sorted(insert_sort)
     assert tmp == test_sorted(selection_sort)
     assert tmp == test_sorted(quick_sort)
-
-    
+    assert tmp == test_sorted(heaq_sort)
+    assert tmp == test_sorted(use_heapq_sort)
