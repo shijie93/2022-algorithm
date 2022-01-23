@@ -6,13 +6,20 @@
 # 解题思路:
 # 通过递归，将问题分解为一个小问题：
 # 假定现在A上有2个圆盘，则步骤为将 a->b a->c b->c
+from calTime import cal_time
 
-def hanoi(n, a, b, c):
+
+def _hanoi(n, a, b, c):
 
     if n > 0:
-        hanoi(n-1, a, c, b)  # a -> b
+        _hanoi(n-1, a, c, b)  # a -> b
         print(f"{a} -> {c}")  # a -> c
-        hanoi(n-1, b, a, c)  # b -> c
+        _hanoi(n-1, b, a, c)  # b -> c
+
+
+@cal_time
+def hanoi(n, a, b, c):
+    _hanoi(n, a, b, c)
 
 
 hanoi(3, "A", "B", "C")

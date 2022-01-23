@@ -2,7 +2,9 @@
 # 前置条件：列表有序
 # 分配两个“指针”指向列表的首尾，将列表一分为二，根据待查找元素与指针中间数的关系，选择查找不同的部分，
 # 时间复杂度：O(logN)
+from calTime import cal_time
 
+@cal_time
 def bin_search(li, val):
     left = 0
     right = len(li) - 1
