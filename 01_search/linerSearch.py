@@ -1,9 +1,6 @@
 # 线性查找也称为顺序查找
 # 指按顺序查找元素
 # 时间复杂度 O(N)
-from calTime import cal_time
-
-@cal_time
 def linear_search(li, val):
     for idx, v in enumerate(li):
         if v == val:
