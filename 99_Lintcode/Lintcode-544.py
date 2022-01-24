@@ -1,8 +1,6 @@
 # 在一个数组中找到前K大的数
 import random
 
-from heapSort import heaq_sort
-
 class Solution:
     """
     @param nums: an integer array
