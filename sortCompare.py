@@ -2,6 +2,7 @@ from json.tool import main
 import random
 import copy
 from bubbleSort import bubble_sort
+from bucketSort import bucket_sort
 from calTime import cal_avg_time
 from countSort import count_sort
 from heapSort import heaq_sort, use_heapq_sort
@@ -13,11 +14,11 @@ from shellSort import shell_sort
 
 count = 2000
 
-li1 = random.sample(range(1, 10000), count)
-li2 = random.sample(range(1, 10000), count)
-li3 = random.sample(range(1, 10000), count)
-li4 = random.sample(range(1, 10000), count)
-li5 = random.sample(range(1, 10000), count)
+li1 = random.sample(range(1, 100000), count)
+li2 = random.sample(range(1, 100000), count)
+li3 = random.sample(range(1, 100000), count)
+li4 = random.sample(range(1, 100000), count)
+li5 = random.sample(range(1, 100000), count)
 
 
 @cal_avg_time(times=5)
@@ -46,3 +47,4 @@ if __name__ == '__main__':
     assert tmp == test_sorted(merge_sort)
     assert tmp == test_sorted(shell_sort)
     assert tmp == test_sorted(count_sort)
+    assert tmp == test_sorted(bucket_sort)

@@ -3,7 +3,7 @@
 
 import random
 
-def count_sort(li, max_v=10000):
+def count_sort(li, max_v=100000):
     cache = [0 for _ in range(max_v + 1)]
 
     for i in li:
