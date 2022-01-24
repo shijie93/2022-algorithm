@@ -3,6 +3,7 @@ import random
 import copy
 from bubbleSort import bubble_sort
 from calTime import cal_avg_time
+from countSort import count_sort
 from heapSort import heaq_sort, use_heapq_sort
 from insertSort import insert_sort
 from mergeSort import merge_sort
@@ -44,3 +45,4 @@ if __name__ == '__main__':
     assert tmp == test_sorted(use_heapq_sort)
     assert tmp == test_sorted(merge_sort)
     assert tmp == test_sorted(shell_sort)
+    assert tmp == test_sorted(count_sort)
