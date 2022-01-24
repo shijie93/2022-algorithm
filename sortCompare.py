@@ -8,6 +8,7 @@ from insertSort import insert_sort
 from mergeSort import merge_sort
 from quickSort import quick_sort
 from selectionSort import selection_sort
+from shellSort import shell_sort
 
 count = 2000
 
@@ -42,3 +43,4 @@ if __name__ == '__main__':
     assert tmp == test_sorted(heaq_sort)
     assert tmp == test_sorted(use_heapq_sort)
     assert tmp == test_sorted(merge_sort)
+    assert tmp == test_sorted(shell_sort)
