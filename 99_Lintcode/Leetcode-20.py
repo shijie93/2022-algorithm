@@ -1,6 +1,8 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         
+        # 32 ms
+        # 14.9 MB
         stack = []
         match = {
             '}' : '{',

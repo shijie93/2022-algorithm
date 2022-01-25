@@ -16,7 +16,7 @@ class Stack:
     def __len__(self) -> int:
         return len(self._stack)
 
-    def get_top(self):
+    def glance(self):
         if len(self._stack) > 0:
             return self._stack[-1]
         else:
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     s.push(2)
     s.push(3)
     print(s.pop())
-    print(s.get_top())
+    print(s.glance())
     print(len(s))
