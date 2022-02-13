@@ -1,4 +1,12 @@
 # Definition for a binary tree node.
+from typing import List
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
         return self.construct(0, len(nums) - 1, nums)

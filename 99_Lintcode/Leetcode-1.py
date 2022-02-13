@@ -13,7 +13,7 @@ class Solution:
 
         # 48 ms
         # 16 MB
-        cache = {}
+        cache = dict()
         for index, val in enumerate(nums):
             if val not in cache:
                 cache[val] = index
