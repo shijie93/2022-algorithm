@@ -12,8 +12,8 @@ class Solution:
                 self.result.append(result)
             
             if left < n: _gen(left + 1, right, n, result + "(")
-            if left > right and right < n: _gen(right + 1, right, n, result + ")")
+            if left > right and right < n: _gen(left, right + 1, n, result + ")")
         
-        _gen(0, 0, n // 2, "")
+        _gen(0, 0, n, "")
 
         return self.result
