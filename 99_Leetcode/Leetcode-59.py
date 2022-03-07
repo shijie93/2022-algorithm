@@ -1,4 +1,3 @@
-import numpy as np
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         '''

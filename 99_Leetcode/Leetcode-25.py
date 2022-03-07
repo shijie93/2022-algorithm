@@ -16,9 +16,8 @@ class Solution:
         return tail, head
 
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-        hair = ListNode(0)
-        hair.next = head
-        pre = hair
+        self.next = head
+        pre = self
 
         while head:
             tail = pre
@@ -26,7 +25,7 @@ class Solution:
             for i in range(k):
                 tail = tail.next
                 if not tail:
-                    return hair.next
+                    return self.next
             nex = tail.next
             head, tail = self.reverse(head, tail)
             # 把子链表重新接回原链表
@@ -35,4 +34,4 @@ class Solution:
             pre = tail
             head = tail.next
         
-        return hair.next
+        return self.next

@@ -1,42 +1,39 @@
-from typing import List
+from tkinter import N
 
 
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        l1, l2 = len(nums1), len(nums2)
+        m = len(nums1)
+        n = len(nums2)
 
-        def getKth(k):
-            
-            p1 = p2 = 0
-
-            while True:
-            
-                if nums1[p1] < nums2[p2]:
-                    p1 += 1
-                    k -= 1
-                elif nums1[p1] > nums2[p2]:
-                    p2 += 1
-                    k -= 1
-                else:
-                    if p1 < l1:
-                        p1 += 1
-                        k -= 1
-                    if p2 < l2:
-                        p2 += 1
-                        k -= 1
-                
-                if p1 == l1:
-                    p1 -= 1
-                if p2 == l2:
-                    p2 -= 1
-
-                if k == -1:
-                    return min(nums1[p1], nums2[p2])
-
-        
-        total = l1 + l2
-        if total & 1 == 1:
-            return getKth(total // 2 + 1)
+        total = m + n
+        if total % 2 == 0:
+            # 偶数
+            return (self.getk(nums1, nums2, total // 2 - 1) + self.getk(nums1, nums2, total // 2)) / 2
         else:
-            return (getKth(total // 2) + getKth(total // 2 + 1)) / 2
+            # 奇数
+            return self.getk(nums1, nums2, total // 2)
 
+    def getk(self, nums1, nums2, k):
+        # k 从 0 开始
+        l1 = l2 = 0
+        m = len(nums1)
+        n = len(nums2)
+        res = None
+        while l1 < m and l2 < n:
+            if nums1[l1] < nums2[l2]:
+                k -= 1
+                l1 += 1
+                if k == -1:
+                    return nums1[l1-1]
+            else:
+                k -= 1
+                l2 += 1
+                if k == -1:
+                    return nums2[l2-1]
+        
+        if l1 < m:
+            return nums1[l1 + k]
+        
+        if l2 < n:
+            return nums2[l2 + k]

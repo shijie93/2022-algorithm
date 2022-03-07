@@ -1,20 +1,24 @@
 class Solution:
-    """给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。"""
     def lengthOfLongestSubstring(self, s: str) -> int:
-        left = right = 0
-
-        max_len = 0
-        win = []
+        '''
+        输入: s = "abcabcbb"
+        输出: 3 
+        '''
+        need = dict()
+        left = right = l = res = 0
         while left <= right and right < len(s):
-            
-            new_val = s[right]
+            new_char = s[right]
 
-            if new_val not in win:
-                win.append(new_val)
+            if new_char not in need:
+                need[new_char] = 1
+                l += 1
                 right += 1
             else:
-                win.pop(0)
+                del need[s[left]]
+                l -= 1
                 left += 1
-            
-            max_len = max(max_len, len(win))
-        return max_len
+
+            res = max(res, l)
+            print(need)
+        return res
+        
